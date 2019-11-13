@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server for SFE Data Analytics for Capstone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimmelibo1998/SFE-Data-Analytics.git"
+  },
+  "author": "Jimmel Ibo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jimmelibo1998/SFE-Data-Analytics/issues"
+  },
+  "homepage": "https://github.com/jimmelibo1998/SFE-Data-Analytics#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
