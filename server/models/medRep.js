@@ -1,39 +1,33 @@
 const mongoose = require("mongoose");
 
-module.exports = medRep = mongoose.model(
+module.exports = MedRep = mongoose.model(
   "medreps",
   new mongoose.Schema({
-    lastName: {
+    lastname: {
       type: String,
       required: true
     },
-    firstName: {
+    firstname: {
       type: String,
       required: true
     },
     age: {
-      type: Number,
-      required: true
+      type: String
     },
     gender: {
-      type: String,
-      required: true
+      type: String
     },
-    area: {
-      type: Schema.Types.ObjectId,
-      ref: "area",
-      required: true
+    assignedarea: {
+      type: String
     },
     address: {
-      type: String,
-      required: true
+      type: String
     },
-    phoneNumber: {
+    phonenumber: {
       type: String
     },
     mobile: {
       type: String,
-      required: true,
       unique: true
     },
     email: {

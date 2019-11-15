@@ -1,14 +1,15 @@
 const express = require("express");
 const connectDB = require("./config/db");
+const bodyParser = require("body-parser");
 
 const app = express();
 
 // connect to database
 connectDB();
 
-app.get("/", (req, res) => {
-  res.send("API Running");
-});
+//body parser
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // Define Routes
 app.use("/api/auth", require("./routes/api/auth"));
