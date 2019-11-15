@@ -7,6 +7,21 @@ module.exports = Doctors = mongoose.model(
       type: Schema.Types.ObjectId,
       ref: "area"
     },
+    registration: {
+      registered: {
+        type: Boolean,
+        default: false
+      },
+      email: {
+        type: String,
+        required: true,
+        unique: true
+      },
+      password: {
+        type: String,
+        required: true
+      }
+    },
     lastName: {
       type: String,
       required: true
@@ -15,26 +30,11 @@ module.exports = Doctors = mongoose.model(
       type: String,
       required: true
     },
-    email: {
-      type: String,
-      required: true,
-      unique: true
-    },
     classCode: {
-      type: String,
-      required: true
+      type: String
     },
     specializationCode: {
-      type: String,
-      required: true
-    },
-    password: {
-      type: String,
-      required: true
-    },
-    registered: {
-      type: Boolean,
-      required: true
+      type: String
     }
   })
 );
