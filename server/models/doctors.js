@@ -4,23 +4,21 @@ module.exports = Doctors = mongoose.model(
   "doctors",
   new mongoose.Schema({
     area: {
-      type: Schema.Types.ObjectId,
-      ref: "area"
+      type: String,
+      required: true
     },
-    registration: {
-      registered: {
-        type: Boolean,
-        default: false
-      },
-      email: {
-        type: String,
-        required: true,
-        unique: true
-      },
-      password: {
-        type: String,
-        required: true
-      }
+    email: {
+      type: String,
+      required: true,
+      unique: true
+    },
+    registered: {
+      type: Boolean,
+      default: false
+    },
+    password: {
+      type: String,
+      required: true
     },
     lastName: {
       type: String,
@@ -31,10 +29,12 @@ module.exports = Doctors = mongoose.model(
       required: true
     },
     classCode: {
-      type: String
+      type: String,
+      required: true
     },
     specializationCode: {
-      type: String
+      type: String,
+      required: true
     }
   })
 );

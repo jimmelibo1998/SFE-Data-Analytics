@@ -45,11 +45,11 @@ router.post(
 
     try {
       // See if medrep exist
-      let medrep = await MedRep.findOne({ email });
-      if (medrep)
+      let user = await MedRep.findOne({ email });
+      if (user)
         res.status(400).json({ errors: [{ msg: "Medrep Already Exist" }] });
 
-      medrep = new MedRep({
+      user = new MedRep({
         lastname,
         firstname,
         email,
@@ -64,9 +64,9 @@ router.post(
 
       // Encrypt password
       const salt = await bcrypt.genSalt(10);
-      medrep.password = await bcrypt.hash(password, salt);
+      user.password = await bcrypt.hash(password, salt);
 
-      await medrep.save();
+      await user.save();
       res.send("Med Rep Created");
     } catch (err) {
       console.error(err.message);

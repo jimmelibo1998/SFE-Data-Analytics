@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 module.exports = Admin = mongoose.model(
-  "admin",
+  "admins",
   new mongoose.Schema({
     lastName: {
       type: String,
@@ -12,8 +12,7 @@ module.exports = Admin = mongoose.model(
       required: true
     },
     role: {
-      type: String,
-      required: true
+      type: String
     },
     position: {
       type: String

@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb://localhost/sfeda"
+  "mongoURI": "mongodb://localhost/sfeda",
+  "jwtSecret": "mysecrettoken"
 }
