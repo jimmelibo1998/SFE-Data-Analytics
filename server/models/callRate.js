@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 
-module.exports = callRate = mongoose.model(
+module.exports = CallRate = mongoose.model(
   "callRates",
   new mongoose.Schema({
     masterList: {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "masterlist"
     },
     scores: [
@@ -15,8 +15,21 @@ module.exports = callRate = mongoose.model(
         },
         doctors: [
           {
-            type: Schema.Types.ObjectId,
-            ref: "doctor"
+            doctor: {
+                id: {
+                    type: mongoose.Schema.Types.ObjectId,
+                    ref: "doctors",
+                    default: null,
+                },
+                lastname: {
+                    type: String,
+                    default: null,
+                },
+                firstname: {
+                    type: String,
+                    default: null
+                }
+            }
           }
         ],
         score: {

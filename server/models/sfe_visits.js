@@ -1,50 +1,54 @@
 const mongoose = require("mongoose");
 
-module.exports = sfe_visits = mongoose.model(
+module.exports = SfeVisits = mongoose.model(
   "sfe_visits",
   new mongoose.Schema({
     masterList: {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "masterlist"
     },
     doctor: {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "doctor"
     },
     weekOne: {
       dates: {
-        type: [Date]
+        type: [Date],
+        default: []
       },
       score: {
         type: Number,
-        default: weekOne.dates.length
+        default: 0
       }
     },
     weekTwo: {
       dates: {
-        type: [Date]
+        type: [Date],
+        default: []
       },
       score: {
         type: Number,
-        default: weekTwo.dates.length
+        default: 0
       }
     },
     weekThree: {
       dates: {
-        type: [Date]
+        type: [Date],
+        default: []
       },
       score: {
         type: Number,
-        default: weekThree.dates.length
+        default: 0
       }
     },
     weekFour: {
       dates: {
-        type: [Date]
+        type: [Date],
+        default: []
       },
       score: {
         type: Number,
-        default: weekFour.dates.length
+        default: 0
       }
     }
   })

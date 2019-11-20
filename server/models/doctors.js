@@ -9,8 +9,8 @@ module.exports = Doctors = mongoose.model(
     },
     email: {
       type: String,
-      required: true,
-      unique: true
+      unique: true,
+      default: null
     },
     registered: {
       type: Boolean,
@@ -18,7 +18,7 @@ module.exports = Doctors = mongoose.model(
     },
     password: {
       type: String,
-      required: true
+      default: null // IM HERE
     },
     lastName: {
       type: String,

@@ -1,28 +1,26 @@
 const mongoose = require("mongoose");
 
-module.exports = masterList = mongoose.model(
+const { ObjectId } = mongoose.Schema.Types;
+
+module.exports = MasterList = mongoose.model(
   "masterlists",
   new mongoose.Schema({
     medRep: {
-      type: Schema.Types.ObjectId,
-      ref: "medrep",
+      type: ObjectId,
+      ref: "medreps",
       required: true
     },
-    doctors: [
+    visits: [
       {
-        doctor: {
-          type: Schema.Types.ObjectId,
-          ref: "doctor"
-        },
-        visits: {
-          type: Schema.Types.ObjectId,
-          ref: "sfe_visit"
+        visit: {
+          type: ObjectId,
+          ref: "sfe_visits"
         }
       }
     ],
     month: {
       type: Date,
-      default: new Date().getMonth()
+      default: Date.now
     },
     callReach: {
       type: Number,

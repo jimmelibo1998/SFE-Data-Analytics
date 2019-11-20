@@ -15,8 +15,12 @@ router.get("/", (req, res) => {
 router.post(
   "/",
   [
-    check("email", "email is required").isEmail(),
-    check("password", "password must be greater than or equal to 8 characters"),
+    check("email", "must be an email")
+      .if((value, { req }) => req.body.email)
+      .isEmail(),
+    check("password", "Must be 8 or more characters")
+      .if((value, { req }) => req.body.password)
+      .isLength({ min: 8 }),
     check("lastName", "last name is required").exists(),
     check("firstName", "firstName is required").exists(),
     check("classCode", "Class Code is required").exists(),
@@ -56,11 +60,16 @@ router.post(
         specializationCode
       });
 
-      const salt = await bcrypt.genSalt(10);
-      user.password = await bcrypt.hash(password, salt);
+      if (email) user.email = email;
+
+      if (password && email) {
+        const salt = await bcrypt.genSalt(10);
+        user.password = await bcrypt.hash(password, salt);
+        user.registered = true;
+      }
 
       await user.save();
-
+      console.log(user);
       res.send("Doctor Registered");
     } catch (err) {
       console.error(err.message);
